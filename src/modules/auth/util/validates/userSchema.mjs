@@ -1,9 +1,9 @@
 import Joi from 'joi';
 
 const userSchema = Joi.object({
-    nome: Joi.string()
+    name: Joi.string()
         .pattern(/^[A-Za-zÀ-ÿ\s]+$/)
-        .max(100)
+        .max(50)
         .min(2)
         .required()
         .messages({
@@ -14,14 +14,14 @@ const userSchema = Joi.object({
         }),
     email: Joi.string()
         .email()
-        .max(100)
+        .max(50)
         .required()
         .messages({
             'string.email': 'Por favor, forneça um e-mail válido.',
             'string.empty': 'O e-mail não pode estar vazio.',
             'string.max': 'O e-mail deve ter no máximo 100 caracteres.',
         }),
-    senha: Joi.string()
+    password: Joi.string()
         .min(6)
         .max(30)
         .pattern(/^(?=.*[A-Z])(?=.*[!@#$%^&*])/)
