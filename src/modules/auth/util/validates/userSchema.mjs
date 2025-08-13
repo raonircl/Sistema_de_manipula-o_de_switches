@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const userSchema = Joi.object({
+export const userSchema = Joi.object({
     name: Joi.string()
         .pattern(/^[A-Za-zÀ-ÿ\s]+$/)
         .max(50)
@@ -33,5 +33,3 @@ const userSchema = Joi.object({
             'string.empty': 'A senha não pode estar vazia.',
         }),
 });
-
-export default userSchema;
