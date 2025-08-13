@@ -14,7 +14,8 @@ export const userService = {
     const newUser = {
       name: data.name,
       email: data.email,
-      password: hashedPassword
+      password: hashedPassword,
+      role_id: data.role_id
     }
 
     return userModel.create(newUser);

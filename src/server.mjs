@@ -1,6 +1,7 @@
 import express from 'express';
 import { testConnection, getConnection } from './config/knex.mjs';
 import { PORT, testVars } from './config/env.mjs';
+import userRoutes from "./modules/user/route/userRoute.mjs";
 
 const app = express();
 app.use(express.json());
@@ -8,6 +9,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('GET request to the homepage')
 });
+
+app.use("/api/users", userRoutes);
 //Rota de saúde do servidor
 app.get('/health', async (req, res) => {
   try {

@@ -32,4 +32,16 @@ export const userSchema = Joi.object({
             'string.max': 'A senha deve ter no máximo 30 caracteres.',
             'string.empty': 'A senha não pode estar vazia.',
         }),
+    role_id: Joi.number()
+        .integer()
+        .min(0)
+        .max(9)
+        .required()
+        .messages({
+            'number.base': 'O role_id deve ser um número.',
+            'number.integer': 'O role_id deve ser um número inteiro.',
+            'number.min': 'O role_id deve ser no mínimo 0.',
+            'number.max': 'O role_id deve ser no máximo 9.',
+            'any.required': 'O role_id é obrigatório.'
+        })
 });

@@ -11,12 +11,13 @@ export const userController = {
         });
       }
       const user = await userService.createUser(req.body);
-      res.status(201).json({ 
+      return res.status(201).json({ 
         message: "Usuário cadastrado com sucesso",
         user: user.name,
         email: user.email
       });
     } catch (error) {
+      console.error(error);
       return res.status(500).json({
         error: error.message,
         message: "Erro ao cadastrar novo usuário"
@@ -34,7 +35,7 @@ export const userController = {
       }
 
       const user = await userService.updateUser(req.params.id, req.body);
-      res.status(200).json({
+      return res.status(200).json({
         message: "Usuário atualizado com sucesso!"
       });
     } catch (error) {
@@ -48,7 +49,7 @@ export const userController = {
   delete: async (req, res) => {
     try {
       await userService.deleteUser(req.params.id);
-      res.status(204).json({ message: "Usuário deletado com sucesso!" });
+      return res.status(204).json({ message: "Usuário deletado com sucesso!" });
     } catch (error) {
       return res.status(500).json({
         error: error.message,

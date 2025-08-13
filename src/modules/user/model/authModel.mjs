@@ -1,27 +1,29 @@
-import { connection } from "../../../config/knex.mjs";
+import { getConnection } from "../../../config/knex.mjs";
+
+const db = getConnection();
 
 export const userModel = {
   create: (userData) => {
-    return connection("users")
+    return db("users")
       .insert(userData)
       .returning("*")
       .then(([user]) => user);
   },
 
   findByEmail: (email) => {
-    return connection("users")
+    return db("users")
       .where({ email })
       .first();
   },
 
   findById: (id) => {
-    return connection("users")
+    return db("users")
       .where({ id })
       .first();
   },
 
   update: (id, userData) => {
-    return connection("users")
+    return db("users")
       .where({ id })
       .update(userData)
       .returning("*")
@@ -29,7 +31,7 @@ export const userModel = {
   },
 
   delete: (id) => {
-    return connection("users")
+    return db("users")
       .where({ id })
       .del();
   }
