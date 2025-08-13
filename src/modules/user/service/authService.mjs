@@ -1,14 +1,23 @@
 import { userModel } from "../model/authModel.mjs";
+import bcrypt from "bcrypt";
 
 export const userService = {
   createUser: async (data) => {
     const existingUser = await userModel.findByEmail(data.email);
-
+    
     if (existingUser) {
       throw new Error("Email não autorizado");
     }
 
-    return userModel.create(data);
+    const hashedPassword = await bcrypt.hash(data.password, 10);
+
+    const newUser = {
+      name: data.name,
+      email: data.email,
+      password: hashedPassword
+    }
+
+    return userModel.create(newUser);
   },
 
   getUserById: async (id) => {
