@@ -2,6 +2,8 @@ import express from 'express';
 import { testConnection, getConnection } from './config/knex.mjs';
 import { PORT, testVars } from './config/env.mjs';
 import userRoutes from "./modules/user/route/userRoute.mjs";
+import loginRoutes from "./modules/user/route/loginRoute.mjs";
+import { authMiddleware } from './modules/user/middleware/authMiddleware.mjs';
 
 const app = express();
 app.use(express.json());
@@ -11,8 +13,9 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+app.use('/api', loginRoutes);
 //Rota de saúde do servidor
-app.get('/health', async (req, res) => {
+app.get('/health', authMiddleware, async (req, res) => {
   try {
     const db = getConnection();
     await db.raw('SELECT 1');

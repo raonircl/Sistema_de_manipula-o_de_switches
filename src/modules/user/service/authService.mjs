@@ -41,6 +41,16 @@ export const userService = {
     return users;
   },
 
+  getUserByEmail: async (email) => {
+    const user = await userModel.findByEmail(email);
+
+    if (!user) {
+      throw new Error("Nenhum usuário encontrado!");
+    }
+
+    return user;
+  },
+
   updateUser: async (id, data) => {
     await userService.getUserById(id);
     return userModel.update(id, data);

@@ -1,5 +1,5 @@
 import { userService  } from "../service/authService.mjs";
-import { userSchema } from "../util/validates/userSchema.mjs"
+import { userSchema } from "../util/validates/userSchema.mjs";
 
 export const userController = {
   create: async (req, res) => {
