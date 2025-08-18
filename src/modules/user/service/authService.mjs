@@ -30,6 +30,16 @@ export const userService = {
 
     return user;
   },
+  
+  getAllUser: async () => {
+    const users = await userModel.findAllUsers();
+    
+    if (!users) {
+      throw new Error("Nenhum usuário encontrado!");
+    }
+
+    return users;
+  },
 
   updateUser: async (id, data) => {
     await userService.getUserById(id);

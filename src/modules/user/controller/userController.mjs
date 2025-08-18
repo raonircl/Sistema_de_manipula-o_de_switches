@@ -56,5 +56,17 @@ export const userController = {
         message: "Erro ao deletar usuário"
       })
     }
+  },
+
+  getAll: async (req, res) => {
+    try {
+      const users = await userService.getAllUser();
+      return res.status(200).json({ message: "Usuários encontrados", Users: users });
+    } catch (error) {
+      return res.status(400).json({
+        error: error.message, 
+        message: "Error ao encontrar usuários"
+      });
+    }
   }
 }

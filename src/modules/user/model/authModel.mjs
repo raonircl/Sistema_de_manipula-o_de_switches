@@ -22,6 +22,11 @@ export const userModel = {
       .first();
   },
 
+  findAllUsers: () => {
+    return db("users")
+    .select('*');
+  },
+
   update: (id, userData) => {
     return db("users")
       .where({ id })
