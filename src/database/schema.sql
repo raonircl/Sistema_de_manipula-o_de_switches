@@ -18,4 +18,6 @@ INSERT INTO roles (name) VALUES
 ('TECNICO'),
 ('OBSERVADOR')
 
+INSERT INTO users (name, email, password, role_id) VALUES
+('ADMIN', 'admin@admin.com', 'admin', 1);
 
