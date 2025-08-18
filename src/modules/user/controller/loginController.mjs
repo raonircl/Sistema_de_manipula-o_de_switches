@@ -35,5 +35,37 @@ export const loginController = {
       console.error(error);
       return res.status(500).json({ error: 'Erro ao realizar login.' });
     }
+  },
+
+  logout: async (req, res) => {
+    try {
+      return res.status(200).json({ message: "Logout realizado com sucesso!" });
+    } catch (error) {
+      return res.status(500).json({ error: "Erro ao realizar logout" });
+    }
+  },
+
+  refreshToken: async (req, res) => {
+    try {
+      const authHeader = req.headers["authorization"];
+      if (!authHeader) {
+        return res.status(400).json({ error: "Refresh token ausente" });
+      }
+
+      const refreshToken = authHeader.split(" ")[1];
+
+      const decoded = jwt.verify(refreshToken, JWT_SECRET);
+
+      const newToken = jwt.sign(
+        { id: decoded.id, role: decoded.role },
+        JWT_SECRET,
+        { expiresIn: "1h" }
+      );
+
+      return res.status(200).json({ token: newToken });
+    } catch (error) {
+      console.error(error);
+      return res.status(400).json({ error: "Refresh token inválido ou expirado." });
+    }
   }
 };
