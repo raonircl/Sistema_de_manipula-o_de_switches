@@ -8,11 +8,7 @@ const router = Router();
 router.post("/create", authMiddleware, authorizeRole(['ADMIN']), userController.create);
 router.put("/update", authMiddleware, authorizeRole(['ADMIN']), userController.update);
 router.delete("/delete", authMiddleware, authorizeRole(['ADMIN']), userController.delete);
-router.get(
-  "/getAll",
-  authMiddleware,
-  authorizeRole(['ADMIN']),
-  userController.getAll
-);
+router.get("/getAll", authMiddleware, authorizeRole(['ADMIN']), userController.getAll);
+router.get("/user", authMiddleware, userController.getUser);
 
 export default router;

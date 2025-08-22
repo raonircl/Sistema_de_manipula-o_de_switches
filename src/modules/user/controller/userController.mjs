@@ -65,7 +65,20 @@ export const userController = {
     } catch (error) {
       return res.status(400).json({
         error: error.message, 
-        message: "Error ao encontrar usuários"
+        message: "Erro ao encontrar usuários"
+      });
+    }
+  },
+
+  getUser: async (req, res) => {
+    try {
+      const id = req.user.id;
+      const user = await userService.getUserById(id);
+      return res.status(200).json({ name: user.name, level: user.role_name });
+    } catch (error) {
+      return res.status(400).json({
+        error: error.message, 
+        message: "Erro ao encontrar usuário"
       });
     }
   }

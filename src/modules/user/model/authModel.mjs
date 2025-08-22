@@ -18,8 +18,10 @@ export const userModel = {
 
   findById: (id) => {
     return db("users")
-      .where({ id })
-      .first();
+    .select("users.*", "roles.name as role_name")
+    .leftJoin("roles", "users.role_id", "roles.id")
+    .where("users.id", id)
+    .first();
   },
 
   findAllUsers: () => {
