@@ -5,7 +5,9 @@ import userRoutes from "./modules/user/route/userRoute.mjs";
 import loginRoutes from "./modules/user/route/loginRoute.mjs";
 import healthRoutes from "./modules/health/router/healthRoutes.mjs";
 import monitorRoutes from "./modules/monitor/route/monitorRoute.mjs";
+import macRoutes from "./modules/searchMac/route/macRoutes.mjs";
 import cors from "cors";
+import { authMiddleware } from './modules/user/middleware/authMiddleware.mjs';
 
 const app = express();
 app.use(express.json());
@@ -26,6 +28,7 @@ app.get('/', (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/auth", loginRoutes);
 app.use("/api/switches", monitorRoutes);
+app.use("/api", authMiddleware, macRoutes);
 app.use("/api", healthRoutes);
 
 const startServer = async () => {

@@ -1,0 +1,252 @@
+[
+  {
+    "host": "10.46.201.16",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.17",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.18",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.19",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.20",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.21",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.22",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.23",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.24",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.25",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.26",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.27",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.28",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.29",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.30",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.31",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.32",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.33",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.34",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.35",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.36",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.37",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.38",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.39",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.40",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.41",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.42",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.43",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.44",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.45",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.46",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.47",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.48",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.49",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.50",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.51",
+    "fabricante": "hpe-cmdline",
+    "tipo": "cmdline-auth",
+    "senha_cmdline": "512900"
+  },
+  {
+    "host": "10.46.201.52",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.53",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.54",
+    "fabricante": "hpe-cmdline",
+    "tipo": "cmdline-auth",
+    "senha_cmdline": "512900"
+  },
+  {
+    "host": "10.46.201.55",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.56",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.57",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.58",
+    "fabricante": "hpe-cmdline",
+    "tipo": "cmdline-auth",
+    "senha_cmdline": "512900"
+  },
+  {
+    "host": "10.46.201.59",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.60",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.61",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.62",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.63",
+    "fabricante": "hpe-cmdline",
+    "tipo": "cmdline-auth",
+    "senha_cmdline": "512900"
+  },
+  {
+    "host": "10.46.201.64",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.65",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.66",
+    "fabricante": "hpe-cmdline",
+    "tipo": "cmdline-auth",
+    "senha_cmdline": "512900"
+  },
+  {
+    "host": "10.46.201.67",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.68",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.69",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.70",
+    "fabricante": "hpe",
+    "tipo": "padrao"
+  },
+  {
+    "host": "10.46.201.71",
+    "fabricante": "huawei"
+  },
+  {
+    "host": "10.46.201.72",
+    "fabricante": "hpe",
+    "tipo": "padrao"
+  },
+  {
+    "host": "10.46.201.73",
+    "fabricante": "DELL",
+    "tipo": "padrao"
+  },
+  {
+    "host": "10.46.201.74",
+    "fabricante": "IntelBras",
+    "tipo": "padrao"
+  }
+]

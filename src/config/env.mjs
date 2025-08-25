@@ -9,6 +9,8 @@ export const {
   DB_PASS,
   DB_NAME,
   JWT_SECRET,
+  SSH_USER,
+  SSH_PASS
 } = process.env;
 
 export const testVars = async () => {
@@ -20,6 +22,8 @@ export const testVars = async () => {
     DB_PASS,
     DB_NAME,
     JWT_SECRET,
+    SSH_USER,
+    SSH_PASS
   };
 
   const missingVars = Object.entries(requiredVars)
