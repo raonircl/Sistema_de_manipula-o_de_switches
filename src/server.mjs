@@ -4,6 +4,7 @@ import { PORT, testVars } from './config/env.mjs';
 import userRoutes from "./modules/user/route/userRoute.mjs";
 import loginRoutes from "./modules/user/route/loginRoute.mjs";
 import healthRoutes from "./modules/health/router/healthRoutes.mjs";
+import monitorRoutes from "./modules/monitor/route/monitorRoute.mjs";
 import cors from "cors";
 
 const app = express();
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", loginRoutes);
+app.use("/api/switches", monitorRoutes);
 app.use("/api", healthRoutes);
 
 const startServer = async () => {
