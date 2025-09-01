@@ -6,6 +6,8 @@ import loginRoutes from "./modules/user/route/loginRoute.mjs";
 import healthRoutes from "./modules/health/router/healthRoutes.mjs";
 import switchRoutes from './modules/monitor/route/monitorRoute.mjs';
 import macRoutes from "./modules/searchMac/route/macRoutes.mjs";
+import statusPort from './modules/switches/route/statusPort.mjs';
+import informationRoutes from './modules/information/route/routeInformation.mjs';
 import cors from "cors";
 import { authMiddleware } from './modules/user/middleware/authMiddleware.mjs';
 
@@ -29,6 +31,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", loginRoutes);
 app.use('/api', authMiddleware, switchRoutes);
 app.use("/api", authMiddleware, macRoutes);
+app.use("/api/status-portas", authMiddleware, statusPort);
+app.use("/api/switches", authMiddleware, informationRoutes);
 app.use("/api", healthRoutes);
 
 const startServer = async () => {
