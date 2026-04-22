@@ -10,7 +10,8 @@ export const {
   DB_NAME,
   JWT_SECRET,
   SSH_USER,
-  SSH_PASS
+  SSH_PASS,
+  SSH_PORT
 } = process.env;
 
 export const testVars = async () => {

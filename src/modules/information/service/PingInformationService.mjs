@@ -23,7 +23,21 @@ export async function pingSwitch(host) {
   }
 }
 
+let cache = null;
+let lastUpdated = 0;
+const CACHE_LIFETIME = 10800 * 1000; // Atualizado a cada 3 horas
+
 export async function obterResumoSwitches() {
+  const now = Date.now();
+
+  // Se o cache existir e for "válido" (não expirou), retorne-o
+  if (cache && now - lastUpdated < CACHE_LIFETIME) {
+    console.log('Retornando dados do cache.');
+    return cache;
+  }
+
+  // Se o cache não for válido, execute a lógica completa
+  console.log('Atualizando dados do switch e salvando no cache.');
   const switches = await obterListaSwitches();
   let ativos = 0,
     offline = 0,
@@ -59,7 +73,8 @@ export async function obterResumoSwitches() {
     )
   );
 
-  return {
+  // Armazene o novo resultado no cache e atualize o timestamp
+  cache = {
     totalSwitches: switches.length,
     ativos,
     offline,
@@ -67,4 +82,7 @@ export async function obterResumoSwitches() {
     portasDesligadas,
     // detalhes,
   };
+  lastUpdated = now;
+
+  return cache;
 }

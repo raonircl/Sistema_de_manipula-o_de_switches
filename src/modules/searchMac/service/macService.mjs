@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { conectarComFallback } from "./sshService.mjs";
 import { parseMacOutput } from "../util/parseMacOutput.mjs";
+import pLimit from "p-limit";
 
 const switchesPath = path.resolve("./switches.json");
 if (!fs.existsSync(switchesPath)) throw new Error("Arquivo switches.json não encontrado!");
@@ -12,23 +13,34 @@ const VLANS_RELEVANTES = [1000, 1100, 1200, 1300, 1400, 1600, 800, 801, 802, 803
   823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 100, 200, 300, 500, 700
 ];
 
+const limit = pLimit(10); // Limite de 10 operações concorrentes
+
 export async function searchMacSwitches(macDigitado) {
   const mac = normalizarMac(macDigitado);
 
-  for (const { host, fabricante } of switches) {
-    try {
-      const output = await executarComando(host, fabricante, mac);
-      const resultado = parseMacOutput(output, mac, VLANS_RELEVANTES, fabricante);
-
-      if (resultado) {
-        return { ...resultado, fabricante, timestamp: Date.now() };
+  const promises = switches.map(sw =>
+    limit(async () => {
+      try {
+        console.log(`Buscando MAC ${mac} em ${sw.host}...`);
+        const output = await executarComando(sw.host, sw.fabricante, mac);
+        const resultado = parseMacOutput(output, mac, VLANS_RELEVANTES, sw.fabricante);
+        if (resultado) {
+          return { ...resultado, fabricante: sw.fabricante, timestamp: Date.now() };
+        }
+      } catch (err) {
+        console.warn(`Erro no switch ${sw.host}: ${err.message}`);
       }
-    } catch (err) {
-      console.warn(`Erro no switch ${host}: ${err.message}`);
-    }
-  }
-  return null;
-};
+      return null;
+    })
+  );
+
+  const results = await Promise.all(promises);
+  const foundResult = results.find(result => result !== null);
+
+  return foundResult || null;
+}
+
+// O resto do código permanece o mesmo...
 
 function normalizarMac(mac) {
   if (!/^([0-9A-Fa-f]{2}[:-]?){5}([0-9A-Fa-f]{2})$/.test(mac)) {

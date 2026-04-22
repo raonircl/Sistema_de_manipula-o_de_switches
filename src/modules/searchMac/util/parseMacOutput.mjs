@@ -23,7 +23,16 @@ export function parseMacOutput(output, mac, listaVlans, fabricante = "huawei") {
   }
 
   if (vlan && listaVlans.includes(vlan) && porta && hostReal) {
-    return { mac, vlan, porta, hostReal };
+    // 🔧 Normalização da porta
+    // if (/^XGE/i.test(porta)) {
+    //   porta = porta.replace(/^XGE/i, "GE"); // converte XGE -> GE
+    // }
+
+    // 🔧 Garante que só retorna portas GE
+    if (/^GE/i.test(porta)) {
+      return { mac, vlan, porta, hostReal };
+    }
   }
+
   return null;
 }
